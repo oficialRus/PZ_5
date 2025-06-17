@@ -1,14 +1,13 @@
-# Go build artifacts
+cat > .gitignore <<'EOF'
+# Go
 /bin/
 /*.exe
-/*.dll
-/*.so
-/*.dylib
-*.test
+/*.test
 
-# IDE/Editor
+# IDE
 .vscode/
 .idea/
 
-# Env & secrets
+# Env
 .env
+EOF
