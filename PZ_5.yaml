@@ -1,0 +1,236 @@
+type: collection.insomnia.rest/5.0
+name: PZ_5
+meta:
+  id: wrk_8f8046f604b2458c83f6007c1486ca58
+  created: 1750189498910
+  modified: 1750189498910
+  description: ""
+collection:
+  - name: USER
+    meta:
+      id: fld_bc1c512baf4b4b99b064a61971481e5e
+      created: 1750190317777
+      modified: 1750190317777
+      sortKey: -1750190317777
+      description: ""
+    children:
+      - url: http://localhost:8080/users
+        name: Добавить пользователя Users
+        meta:
+          id: req_78b435a007c44b468b17f332bbc830d9
+          created: 1750189559823
+          modified: 1750190372518
+          isPrivate: false
+          description: ""
+          sortKey: -1750190357740
+        method: POST
+        body:
+          mimeType: application/json
+          text: '{"email":"a@b.com","first_name":"Ann","last_name":"Bee"}'
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/users
+        name: Получить список пользователей
+        meta:
+          id: req_22f6609972484f8ea53c07eb32a26f08
+          created: 1750190119307
+          modified: 1750190369368
+          isPrivate: false
+          description: ""
+          sortKey: -1750190357590
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/users/1
+        name: Получить пользователя по ID
+        meta:
+          id: req_02a5a39b18e6455e900bd0641c230ac0
+          created: 1750190160624
+          modified: 1750190367172
+          isPrivate: false
+          description: ""
+          sortKey: -1750190357640
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/users/1
+        name: Удалить пользователя
+        meta:
+          id: req_1a9e836a04204db48791c6ed0dee96ce
+          created: 1750190236703
+          modified: 1750190357570
+          isPrivate: false
+          description: ""
+          sortKey: -1750190357540
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: "Товары "
+    meta:
+      id: fld_6e94e39638cb45aea7da1e56bc87ca1f
+      created: 1750190385707
+      modified: 1750190385707
+      sortKey: -1750190385707
+      description: ""
+    children:
+      - url: http://localhost:8080/products
+        name: СОЗДАНИЕ ПРОДУКТА
+        meta:
+          id: req_7eba3b5117ae4d22850faf5ed58c881d
+          created: 1750190391685
+          modified: 1750190466820
+          isPrivate: false
+          description: ""
+          sortKey: -1750190402773
+        method: POST
+        body:
+          mimeType: application/json
+          text: '{ "code":"SKU-1", "name":"Pen", "price":199 }'
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/products
+        name: Получить список продуктов
+        meta:
+          id: req_e673b4d668f14209b7575ccaf89a204d
+          created: 1750190474865
+          modified: 1750190498767
+          isPrivate: false
+          description: ""
+          sortKey: -1750190402873
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/products/1
+        name: Получаем конкретный продукт
+        meta:
+          id: req_e81b9e6cec61488a9c815e9b4d5c16ef
+          created: 1750190513126
+          modified: 1750190530320
+          isPrivate: false
+          description: ""
+          sortKey: -1750190402973
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/products/1
+        name: Удаление продукта
+        meta:
+          id: req_3db0ad180bf64a8abcb637d65b720468
+          created: 1750190538774
+          modified: 1750190563711
+          isPrivate: false
+          description: ""
+          sortKey: -1750190402673
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - url: http://localhost:8080/health
+    name: Проверяем жив ли сервис
+    meta:
+      id: req_564897dd7a454716bcbd2ca7c9dd0fd6
+      created: 1750189526229
+      modified: 1750190345162
+      isPrivate: false
+      description: ""
+      sortKey: -1750190277190
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_4e75523e548814727c6a43042cf48c452a7c54ee
+    created: 1750189498922
+    modified: 1750189498922
+environments:
+  name: Base Environment
+  meta:
+    id: env_4e75523e548814727c6a43042cf48c452a7c54ee
+    created: 1750189498921
+    modified: 1750189498921
+    isPrivate: false

@@ -1,0 +1,5 @@
+db:
+  driver: "sqlite"
+  dsn: "app.db"        # путь к файлу; ":memory:" — для тестов
+server:
+  port: 8080           # на каком порту слушаем HTTP
