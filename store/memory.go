@@ -1,71 +1,55 @@
 package store
 
-import (
-	"cadet_project/models"
-	"errors"
-	"sync"
-)
+import "sync"
 
-type MemoryStore struct {
+type Memory[T any] struct {
 	mtx    sync.RWMutex
-	cadets []models.Cadet
 	nextID int
+	data   []T
 }
 
-// MemoryStore хранит кадетов в срезе и защищён мьютексом.
-func NewMemoryStore() *MemoryStore {
-	return &MemoryStore{
-		cadets: make([]models.Cadet, 0),
-		nextID: 1,
+func NewMemory[T any]() *Memory[T] {
+	return &Memory[T]{data: make([]T, 0), nextID: 1}
+}
+
+func (m *Memory[T]) WithID(setID func(*T, int)) func(T) T {
+	return func(t T) T {
+		m.mtx.Lock()
+		defer m.mtx.Unlock()
+		setID(&t, m.nextID)
+		m.nextID++
+		m.data = append(m.data, t)
+		return t
 	}
 }
 
-// /Метод отображения списка сущностей
-func (s *MemoryStore) GetAll() []models.Cadet {
-	s.mtx.RLock()
-	defer s.mtx.RUnlock()
-
-	out := make([]models.Cadet, len(s.cadets))
-	copy(out, s.cadets)
+func (m *Memory[T]) All() []T {
+	m.mtx.RLock()
+	defer m.mtx.RUnlock()
+	out := make([]T, len(m.data))
+	copy(out, m.data)
 	return out
 }
 
-// Добавление сущностей
-func (s *MemoryStore) Add(name, rank string) models.Cadet {
-	s.mtx.Lock()
-	defer s.mtx.Unlock()
-	c := models.NewCadet(s.nextID, name, rank)
-	s.nextID++
-	s.cadets = append(s.cadets, c)
-	return c
-}
-
-// /Удаляет
-func (s *MemoryStore) Delete(id int) error {
-	s.mtx.Lock()
-	defer s.mtx.Unlock()
-
-	for i, c := range s.cadets {
-		if c.ID == id {
-			s.cadets = append(s.cadets[:i], s.cadets[i+1:]...)
-			return nil
+func (m *Memory[T]) Delete(match func(T) bool) bool {
+	m.mtx.Lock()
+	defer m.mtx.Unlock()
+	for i, v := range m.data {
+		if match(v) {
+			m.data = append(m.data[:i], m.data[i+1:]...)
+			return true
 		}
 	}
-
-	return errors.New("cadet not found")
+	return false
 }
 
-// Обновляет
-func (s *MemoryStore) Update(id int, name, rank string) error {
-	s.mtx.Lock()
-	defer s.mtx.Unlock()
-
-	for i, c := range s.cadets {
-		if c.ID == id {
-			s.cadets[i].Name = name
-			s.cadets[i].Rank = rank
-			return nil
+func (m *Memory[T]) Update(match func(*T) bool) bool {
+	m.mtx.Lock()
+	defer m.mtx.Unlock()
+	for i := range m.data {
+		if match(&m.data[i]) {
+			return true
 		}
 	}
-	return errors.New("cadet not found ")
+	return false
 }

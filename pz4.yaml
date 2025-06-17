@@ -1,0 +1,209 @@
+type: collection.insomnia.rest/5.0
+name: PZ 4
+meta:
+  id: wrk_44a13e5513424ffea7a4b4f6f02ee327
+  created: 1750185518455
+  modified: 1750185518455
+  description: ""
+collection:
+  - url: http://localhost:8080/cadets
+    name: Cadet – List
+    meta:
+      id: req_b1f26eb86ccd47ef95f13ee2f3d9641f
+      created: 1750185524353
+      modified: 1750185621331
+      isPrivate: false
+      description: ""
+      sortKey: -1750185524353
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/cadets
+    name: Cadet – Add
+    meta:
+      id: req_24b2741a9c814e638f987bfe8da71593
+      created: 1750185574541
+      modified: 1750185657385
+      isPrivate: false
+      description: ""
+      sortKey: -1750185574541
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "name": "Ivan", "rank": "Cadet" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/cadets/1
+    name: Cadet – Update
+    meta:
+      id: req_9d66354feb514886883beddf330f39d6
+      created: 1750185666072
+      modified: 1750185703888
+      isPrivate: false
+      description: ""
+      sortKey: -1750185666072
+    method: PUT
+    body:
+      mimeType: application/json
+      text: '{ "name": "Иван", "rank": "Старший кадет" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/cadets/2
+    name: Cadet – Delete
+    meta:
+      id: req_9b7294dcd1464326b6a4814e103132c2
+      created: 1750185733979
+      modified: 1750185977117
+      isPrivate: false
+      description: ""
+      sortKey: -1750185733979
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/equipment
+    name: "\tEquipment – List"
+    meta:
+      id: req_38b5aab6f353489a886a061cfe30c77b
+      created: 1750185769765
+      modified: 1750185825037
+      isPrivate: false
+      description: ""
+      sortKey: -1750185769765
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/equipment
+    name: "\tEquipment – Add"
+    meta:
+      id: req_2bb5c28ad56d4549aed957b863ea84b1
+      created: 1750185807200
+      modified: 1750185835179
+      isPrivate: false
+      description: ""
+      sortKey: -1750185807200
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "name": "Radio", "status": "operational" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/equipment/4
+    name: "\tEquipment – Update"
+    meta:
+      id: req_10a0e84990204094aa00c2cb4ed23984
+      created: 1750185842149
+      modified: 1750186015908
+      isPrivate: false
+      description: ""
+      sortKey: -1750185842149
+    method: PUT
+    body:
+      mimeType: application/json
+      text: ' { "name": "Radio A-7", "status": "repair" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/equipment/3
+    name: "\tEquipment – Delete"
+    meta:
+      id: req_84cd57c226ab410880b86e79f838da58
+      created: 1750185877287
+      modified: 1750186029292
+      isPrivate: false
+      description: ""
+      sortKey: -1750185877287
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_3d4f0a2b185aa3330adb080edd5e33299b2ba7c3
+    created: 1750185518466
+    modified: 1750185518466
+environments:
+  name: Base Environment
+  meta:
+    id: env_3d4f0a2b185aa3330adb080edd5e33299b2ba7c3
+    created: 1750185518465
+    modified: 1750185518465
+    isPrivate: false
