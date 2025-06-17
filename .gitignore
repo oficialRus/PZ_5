@@ -1,0 +1,14 @@
+# Go build artifacts
+/bin/
+/*.exe
+/*.dll
+/*.so
+/*.dylib
+*.test
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# Env & secrets
+.env
